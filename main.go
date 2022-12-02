@@ -25,7 +25,7 @@ func main() {
 		}
 		emailLink := emailBuilder(abuseEmail, url)
 		fmt.Println(emailLink)
-		exec.Command("flatpak", "run", "org.mozilla.firefox", emailLink).Run()
+		exec.Command("xdg-open", emailLink).Run()
 
 	} else {
 		for _, i := range os.Args[1:] {
@@ -35,7 +35,7 @@ func main() {
 			}
 			emailLink := emailBuilder(abuseEmail, i)
 			fmt.Println(emailLink)
-			exec.Command("flatpak", "run", "org.mozilla.firefox", emailLink).Run()
+			exec.Command("xdg-open", emailLink).Run()
 		}
 	}
 }
